@@ -34,4 +34,5 @@ class RvAdapter(private val data:List<MenuModel>) :
             makanan_image1.setImageResource(item.gambarMenu)
         }
     }
+
 }
