@@ -23,7 +23,8 @@ inner class ViewPagerAdapter(fm: FragmentManager)
     : FragmentPagerAdapter(fm){
     private val pages = listOf(
         MakananFragment.getInstance(),
-        MinumanFragment.getInstance()
+        MinumanFragment.getInstance(),
+        AddFragment.getInstance()
     )
     override fun getItem(position: Int): Fragment{
         return pages[position]
@@ -36,7 +37,8 @@ inner class ViewPagerAdapter(fm: FragmentManager)
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
             0 -> "Makanan"
-            else -> "Minuman"
+            1 -> "Minuman"
+            else -> "tambah data"
     }
 }
 
