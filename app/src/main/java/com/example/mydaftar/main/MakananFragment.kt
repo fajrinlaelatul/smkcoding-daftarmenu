@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mydaftar.R
 import com.example.mydaftar.R.layout
-import com.example.mydaftar.data.MenuModel
+import com.example.mydaftar.adapter.RvAdapterMakanan
+import com.example.mydaftar.data.MenuMakananModel
 import kotlinx.android.synthetic.main.makanan_fragment.rv_makanan
 
 class MakananFragment : Fragment() {
@@ -19,8 +19,8 @@ class MakananFragment : Fragment() {
         }
     }
 
-    val dataMakanan= mutableListOf<MenuModel>()
-    val rvAdapter=RvAdapter(dataMakanan)
+    val dataMakanan= mutableListOf<MenuMakananModel>()
+    val rvAdapter= RvAdapterMakanan(dataMakanan)
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,18 +34,5 @@ class MakananFragment : Fragment() {
         rv_makanan.adapter=rvAdapter
         rv_makanan.layoutManager=
             LinearLayoutManager(context)
-
-        addDummyData()
-    }
-
-    private fun addDummyData() {
-        dataMakanan.add(MenuModel("Mie kepang", "Rp25.000",
-            R.drawable.mie_kepang))
-        dataMakanan.add(MenuModel("Ramen", "Rp30.000",
-            R.drawable.ramen))
-        dataMakanan.add(MenuModel("Yamie", "Rp35.000",
-            R.drawable.yamie_panda))
-
-        rvAdapter.notifyDataSetChanged()
     }
 }

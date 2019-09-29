@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mydaftar.R
 import com.example.mydaftar.R.layout
-import com.example.mydaftar.data.MenuModel
-import kotlinx.android.synthetic.main.makanan_fragment.rv_makanan
+import com.example.mydaftar.adapter.RvAdapterMakanan
+import com.example.mydaftar.data.MenuMakananModel
 import kotlinx.android.synthetic.main.minuman_fragment.rv_minuman
 
 class MinumanFragment :Fragment() {
@@ -19,8 +18,8 @@ class MinumanFragment :Fragment() {
             return MinumanFragment()
         }
     }
-    val dataMinuman= mutableListOf<MenuModel>()
-    val rvAdapter=RvAdapter(dataMinuman)
+    val dataMinuman= mutableListOf<MenuMakananModel>()
+    val rvAdapter= RvAdapterMakanan(dataMinuman)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(
@@ -33,30 +32,5 @@ class MinumanFragment :Fragment() {
         rv_minuman.adapter=rvAdapter
         rv_minuman.layoutManager=
             LinearLayoutManager(context)
-
-        addDummyData()
-    }
-
-    private fun addDummyData(){
-            dataMinuman.add(
-                MenuModel(
-                    "Bubble Tea", "Rp35.000",
-                    R.drawable.buble_tea
-                )
-            )
-            dataMinuman.add(
-                MenuModel(
-                    "Es Teh", "Rp10.000",
-                    R.drawable.es_teh
-                )
-            )
-            dataMinuman.add(
-                MenuModel(
-                    "Es Jeruk", "Rp12.000",
-                    R.drawable.es_jeruk
-                )
-            )
-
-            rvAdapter.notifyDataSetChanged()
         }
     }
